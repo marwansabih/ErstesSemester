@@ -12,8 +12,16 @@
 \begin{document}
 \section{Einführung in Grundbebriffe}
 
-\textbf{IT-Compliance: }  IT Compliance beschreibt in der Unternehmungsführung die Kenntnis und die Einhaltung der gesetzlichen,
-unternehmsinternen und vertraglichen Regelungen im Bereich der IT-Landschaft.
+\textbf{IT-Compliance: }  IT-Compliance bezeichnet die Kenntnis und
+Einhaltung sämtlicher regulatorischer
+Vorgaben und Anforderungen an das
+Unternehmen, die Aufgabe und Einrichtung
+entsprechender Prozesse und die Schaffung
+eines Bewusstseins der Mitarbeiter für
+Regelkonformität, sowie die Kontrolle und
+Dokumentation der Einhaltung der
+relevanten Bestimmungen gegenüber
+internen und externen Adressaten.
 \\
 \\
 \textbf{IT-Governence: } Liegt der Verantwortung des Vorstands und des Managements und ist wesentlicher Bestandsteil der 
@@ -39,14 +47,19 @@ menschliche Fehlentscheidung
 
 \textbf{Schutzmaßnahmen: } Maßnahmen um einen Zustand von Sicherheit zu erreichen oder zu verbessern.
 \\
+\textbf{Begriffe im Zusammenhang:} Eine Bedrohung nutzt Schwachstellen aus um Assests anzugreifen.
 nach BSI:\\
 Infrastruktur: Verschlossene Türen + Videokameras\\
 Hardware und Software: Firewall, Malewareschutz, IDS (Analyisert und schlägt Alarm wenn Angriff stattfindet) - IPS (leitet sogar noch
 GegenMaßnahmen ein)\\
-Organisation\\
-Kommunikation\\
-Notfallvorsorge\\
-Personal\\
+Organisation: Verantwortlichkeiten regeln, Nutzungsverbot nicht freigebender Hardware/Software\\
+Kommunikation: Dokumentation der Verkabelung, Regelmäßiger Sicherheitscheck der Netze, restriktive Rechtvergabe\\
+Notfallvorsorge: Regelmäßige Datensicherung, TKA-Basisanschluss für Notrufe, Übersichert über Verfügbarkeitsanforderungen\\
+Personal: Vertretungsregelung, Awarenessmaßnahmen, Einarbeitung von Mitarbeitern\\
+
+\textbf{Schutzziele: } Generische Sicherheitsziele zur Auswahl von
+Maßnahmen und Gestaltung eines
+Sicherheitskonzeptes.
 
 
 
