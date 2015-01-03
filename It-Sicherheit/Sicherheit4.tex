@@ -1,0 +1,352 @@
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper,left=40mm,right=30mm, top=1cm, bottom=2cm} 
+%opening
+\title{TGI-1}
+\author{}
+
+\begin{document}
+\section{Kryptographie}
+
+\subsection{Kommunikationsmodell}
+
+\begin{itemize}
+ \item \textbf{Passiver Angriff:} Abhören der Daten 
+ \item \textbf{Aktiver Angriff:} Manipulation der Daten
+\end{itemize}
+
+\subsection{Schutzziele}
+
+\begin{itemize}
+ \item \textbf{Vertraulichkeit:} Verbindung zwischen A(lice) und B(ob) ist sciher O(scar) kann nicht mithören. 
+ \item \textbf{Integrität:} Naricht wird nicht verändert, bzw. A und B stellen Änderung fest.
+ \item \textbf{Datenauthenzität: } B weiß sicher das Nachricht von A stammt. (Mehrere Emails mit selber IP und unbekannter Autor - 
+ fallen in diese Kategorie)
+ \item \textbf{Instanzauthenzität: } B kann die Identiät von A zweifelsfrei feststellen.
+ \item \textbf{Nichtabstreitbarkeit: } B kann Naricht von A zweifelsfrei auch gegenüber einer dritten Partei als Narich von A 
+ nachweisen.
+ 
+ 
+\end{itemize}
+ 
+ \subsection{Kryptographie für Schutzziele}
+ 
+ \begin{itemize}
+ \item \textbf{Vertraulichkeit:} Verschlüsselung 
+ \item \textbf{Integrität:} Hashfunktion, Message Authentification Code MAC, Signaturen ( da geb ich dir Brief und Siegel und für)
+ \item \textbf{Datenauthenzität: } MAC, Signaturen
+ \item \textbf{Nichtabstreitbarkeit: } Signaturen
+ \item \textbf{Instanzauthenzität: } Challange Reponse Protokoll ( Hashwert gemeinsam bekanntes Passwort ist der Challange , siehe Beispiel 
+ Captcha)
+ 
+\end{itemize}
+
+
+ \subsection{Auguste Kerckhoff 1883}
+ 
+\begin{itemize}
+ \item Ist ein System nicht beweisbar sicher, so sollte es parktisch sicher sein.
+ \item Das Design eines Systems sollte keine Geheimhaltung erfordern (Feind darf es wissen).
+ \item Ein Kryptosystem muss einfach bedienbar sein.
+ \item Ein Angreifer kennt das kryptographische Verfahren, nur die privaten oder symmetrischen Bratwürste sind geheim.
+\end{itemize}
+
+\subsection{Symmetrische und Asymmetrische Verfahren}
+
+
+\begin{itemize}
+ \item \textbf{symmetrische Verfahren:} A und B selben Schlüssel, deswegen darf ihn O nicht kennen.
+ \item \textbf{asymmetrische Verfahren:} A und B besitzten jeweilse einen öffentlichen sowie einen privaten Schlüssel.
+ Die öffentlichen Schlüssel müssen sicher ausgetauscht werden.
+\end{itemize}
+
+\subsection{Symmetrische Verschlüsselung im Detail}
+
+\subsubsection{Ceasar}
+\begin{itemize}
+\item Verschiebt Buchtaben um festen Betrag.
+\item Da es nur 26 Mögliche Schlüssel gibt -> Für die Sicherheit muss der Schlüsselraum (Menger möglicher Schlüssel) groß genug sein.
+\item Modifiziertes Ceasarverfahren hat 26! Möglichkeiten (SEHR SEHR VIEL) läßt sich aber über relative Häufigkeit knacken.
+\item Relative Häufigkeit = Beispiel für statische Angriffe  -> alle Kryptoanalytischen Mehtoden müssen berücksichtigt werden 
+großer Schlüsselraum alleine reicht nicht aus.
+\end{itemize}
+
+\subsection{One-time Pad}
+\begin{itemize}
+\item Basiert auf Xor und Bitzahlen (siehe Folige 36-40)
+\item Absolut sicher bei Unkenntnis des Schlüssel - jeder sinnvolle Text gleich warhscheinlich.
+\item Ciphertext liefert keine Information über den Klartext oder Schlüssel.
+\end{itemize}
+\subsection{Absolute Sicherheit}
+\begin{itemize}
+\item \textbf{Absolute Sicherheit: } Wenn ein Angreifer mit unbeschränkten Ressourcen (Zeit, Rechenleistung) das Verschlüsselungsverfahren nicht knacken kann 
+- bsp. One-Time-Pad.
+\item \textbf{Nachteil} Schlüssel muss genauso lang sein wie Botschaft selbst (Krasses Beispiel 10 GB benötigen 10 GB) Claude Shannon, 1948
+\end{itemize}
+\subsection{Praktische Sicherheit}
+\begin{itemize}
+\item \textbf{Praktische Sicherheit: } Schutz vor Angreifer mit beschränkten Ressource
+\end{itemize}
+\subsection{Modifiziertes One-time Pad}
+\begin{itemize}
+\item Zweimaliges Anwenden desselben Schlüssel auf unterschiedliche Texte ist nicht besonders effizient - über die Summe der beiden Geheimbotschaften erhält Angreifer die
+Summe der Klartexte
+\item Man kennt also Summe der Klartexte ohne Schlüssel kennen zu müssen
+\item Also müssen wir nur noch zwei sinnvolle Klartexte finden die entsprechende Summe liefern -> selbst kleine Veränderungen des kryptographischen Verfahren können zu einer
+massiven Senkung der Sicherheit führen
+\end{itemize}
+
+\subsection{Definition Sicherheitsniveau}
+
+\begin{itemize}
+\item \textbf{Sicherheisniveau: } Ein Kryptoverfahren hat ein Sicherheitsniveau von n-Bit wenn der Angreifer 2 hoch n Versuche benötigt um es zu brechen.
+\item praktische Sicheheit bei größer gleich 100 Bit (heutzutage)
+\end{itemize}
+
+
+\subsection{Stromchiffre}
+
+\begin{itemize}
+ \item Aus Schlüssel der größer gleich 100 bit ist wird ein peseudozufälliger Schlüssel generiert
+ \item Der Schlüsselstrom wird dann mit dem Klartext addiert (XOR)
+ \item erste Idee gleichen Schlüssel mehrmals hintereinander in den Pseudozufallsgenerator - das ist aber unsicher
+ \item Aus 100 bit Zufalls schüssel läßt sich mit einem Pseudozufallszahlengenerator natürlich kein echter 200 bit Zufallschlüssel erzeugen -
+ Schwierigkeit liegt darin den 100 Bit Schlüssel zu erraten und dann den Schlüsselstrom zu berechnen.
+ \item wichtig aus teilen des Schlüsselstroms dürfen keine Vorgänger und Nachfolger bestimmbar sein
+ 
+\end{itemize}
+
+ 
+ \subsubsection{Stromchiffre:LFSR = Linear Feedback Shit Register}
+ 
+ \begin{itemize}
+  \item 1. Schritt Register wird mit zufälligem Schlüssel initialisiert 
+  \item Schlüssel wird von links nach rechts durchgeschoben: Was rechts rausfällt ist die Pseudozufallszahl
+  \item ausgewählte Bits im Register werden mit XOR addiert und dann rechts eingefügt.
+  \item bei einem 11 Bit register lassen sich nach 11 rausgeschobenen Zeichen bei Kenntnis des LFSR ... Nachfolger bestimmen
+ \end{itemize}
+ 
+  \subsubsection{Die SUPER POWER: LFSR = Linear Feedback Shit Register}
+ \begin{itemize}
+  \item Jetzt werden die wesentlichen Schwächen verhindert!
+  \item Shrinking Generator: Zwei LFSR R1 und R2 wenn R1 1 ausgibt wird Ausgabe R2 genommen falls R1 0 ausgibt wird sie verworfen.
+  \item Summations Generator: Easy Peasy - R1 und R2 addiere einfache die Ausgaben.
+  \item boah jetzt haben wir potentielle Angreifer krass verwirrt Manipulation
+  \item Beispiele: Krasses Handy 1990 / Sprachverschlüsselung zwischen Mobiltelefon und Funktmast
+  
+ 
+ \end{itemize}
+
+ \subsection{Blockchiffre}
+ 
+  \begin{itemize}
+   \item Blockchiffren bilden Bistrings fester Länge auf Bitsrings fester Länger ab
+   \item moderner Blockchiffren verarbeiten Bitstrings der Länge 128 (Klartextblock)
+   \item Genutzte Schlüssel müssen eine Bitlänge >= 100 haben 
+   \item Für längere Klartexte (128 Bit) werden sogenannet Betriebsarten genutzte
+   \item Zwei Arten: Feistel Chiffren - Prominenentes Beispiel DES und Substitutions-Permutations-Netzwerk SPN - Prominentes Beispiel AES nachfolger von Design -
+   wenden beide im Prinzip dasselbe an: 
+   \begin{itemize}
+   \item Diffusion: Verteilung der Information des Klartext über den gesamten Chiffretext\\
+    jedes Bit des Chiffretext hängt von jedem Bit des Klartext ab\\
+    Bei Änderung eines Klartextbits ändern sich 50\% der Geheimtextbits\\
+    wird durch Permutationen realisiert
+   \item Konfusion: Zusammenhang zwischen Klartext und Chiffretext soll hochgradig komplex sein
+   gleiches gilt für Schlüssel und Chiffretext
+   -realisiert durch Subsitituionen (nicht lineare Abbildung)
+   \item Rundenbasiert: Wiederholte Anwendung von Diffusion, Konfusion und Schlüssel
+   \end{itemize}
+
+  \end{itemize}
+  
+  
+   \subsection{Diffusion und Konfusion unter der Lupe}
+   
+   \begin{itemize}
+    \item Reihenfolge der Bits werden über den gesamten Block (128 Bit) vertauscht + mehrere Runden nötig damit Diffusion zum tragen kommt
+    \item S-Box = nichtlineare Abbilung\\
+    KLARTEXTBLOCK (128 Bit)                             1) Aus Schlüssel der länge 128 bit werden n Rundenschlüssel der länge 128 Bit hergeleitet
+    
+    dann wird der erste Runden Schlüssel auf den Klartext addiert (XOR) dann wenden wir die nicht lineare S-Boxen(haben die länge 8-16 bit) auf den Schlüssel an und anschließend permutieren wir das ganze,
+    dies wiederholen wir n -mal und erhalten den Chiffretext\\
+    \textbf{Lassen wir die Substitution weg - ist die Blockchiffre eine lineare Abbildung} - deswegen lineares Gleichungssystem und effizient lösbar\\
+    \textbf{Lassen wir Permutionen Weg} hängt Bit 1- 16 des Geheimtextes nur nur von Bit 1-16 vom klartextblock ab damit (Attacke auf 1 Bit 17 usw über monoalphabetische
+    Verfahren möglich)
+    \end{itemize}
+    \subsection{Betriebsarten}
+   \begin{itemize}
+    \item Blockchiffren: verschlüsseln zunächst nur Klartexte einer bestimmten Blockgröße - heute meist 128 Bitlänge
+    \item Für längere Klartexte wird der Text in entsprechende Blöcke, falls der letzte Block zu klein ist wird dieser mit einem Padding aufgefüllt
+   \end{itemize}
+
+   \subsubsection{ECB-Mode = Electronic code Book}
+   \begin{itemize}
+    \item Plaintext + immer gleich Key auf jedem Block mit Blockcipher encryption
+    \item gleiche Klartextblöcke werden zu gleichen Chiffretexte verschlüsselt
+    \item AES im ECB = Wenn man Pinguin kommt Pinguin etwas schwarz wieder raus
+    \item aus den Punkten davor folgt, dass wir weitere Parameter und nicht nur den Schlüssel und Klartext zur Erstellung des Chiffretextes benötigen
+    \item daraus folgt wir verwenden andere Betriebsmodi CFB und OFB
+   \end{itemize}
+   
+      \subsubsection{CBC-Mode = Cipher Block Chaining}
+
+   \begin{itemize}
+    \item Initialisierungsvektor IV - wird benutzt und vor Verschlüssung auf Plaintext (summiert XOR) angewendet (um Rückschlüsse auf Key und Klartext zu verhindern)
+    \item entstandener Ciphertext wird als nächste IV für den Block benutzt
+    \item Entschlüsselung entprechen umgekehrt
+   \end{itemize}
+
+  
+      \subsubsection{Counter Mode CTR}
+      
+      \begin{itemize}
+       \item Zuerst erzeuge Wertepaar Nonce = Zuffalls Number only used once und verknüpfe sie mit Counter für jeden Block (z.B. Counter 0000 für erst nächster Block hätte Counter
+       0001 usw.) die Verknüpfung von Nonce mit der Counter erfolgt beispielsweise über simples dranhängen oder über Addition (XOR)
+       \item Mit Hilfe der Block-Cipher Encrytion und dem Key wird dann aus diesen Werten ein Schlüsselstrom erzeugt
+       \item Addition auf den Plaintext ergibt dann entsprechenden Ciphertext - zur Entschlüssung muss dann natürlich entsprechender Schlüsselstrom einfach
+       auf den Cipher addiert werden.
+       \item Damit dieser Modus sicher ist muss die Blockchiffre -1.) Die Elemente müssen Permutiert werden -> kleine Änderungen (Zähler) führen zu großer Änderung Ciphertext und
+       Blockchainig muss nicht linear sein damit auf den Schlüssel nicht geschlossen werden kann - Zusammenfassung nicht linear für Schlüssel - Permutation für Eingabe in die Chiffre
+      \end{itemize}
+      
+      \subsubsection{Was passiert mit dem Pinguin?}
+      \begin{itemize}
+       \item ECB und CTR töten Pinguin
+      \end{itemize}
+
+      \subsection{Hashfunktionen}
+      \begin{itemize}
+       \item Ziel einer Hashfunktion Integritätschutz
+       \item Bilden Bitstrings beliebiger Länge auf Bitstrings fester Länge ab.
+       \item Für Datenintegrität
+       \item Hashfunktion ist kryptisch stark wenn: Preimage resitance: Es ist praktisch unmöglich einen Eingabeparameter zu finden der einen entsprechnden Hashwert liefert.
+                                                    Collision resistance: Es ist praktisch unmöglich zwei Eingabeparameter so zu finden das sie denselben Hashwert liefern.
+       \item H soll effenzient berechenbar sein, die Umkehrfunktion soll aber praktisch nicht berechnbar sein (Einwegfunktion)
+       
+       \item Untersschied Hash und MAC - Hash für Datenauthenzität - MAC für Datenauthenzität und Integrität
+       \item Wie funnktioniert das Ganze Merckle Damgard Konstruktion: man könnte z.B. f als blockchiffre nehmen und dann ein Initialisierungsvektor + den Block in f reingeben - was da rauskommt stecken wir
+       mit dem nächsten Klartextblock + den Chiffreblocktext wieder in f rein und wiederholen das Ganze bis wir so den ganzen Text durchgegangen sind - der letze Cipherblock
+       ist dan der Hashwert.
+       \item Beispiel Download von Datei - Hashwert soll stimmen
+       \item da Hashfunktionen öffentlich zugänglich sind - läßt sich der Absender einer Naricht nicht ermittel ( Schutzziel Datenauthenzität ist nicht gewährleistet)
+               \end{itemize}
+      
+       \subsection{Macfunktionen}
+       \begin{itemize}
+        \item Bei symmtrisscher Verschlüsselung (nur A hat k und B hat k) liefert der mac(k,m) eine Prüfsumme mit der B feststellen kann, dass die Nachricht wirklich von A stammt
+        \item so erfüllte es aber Nichtabstreitbarkeit weil nur A und B - den Schlüssel k kennen (dafür werden Signaturen benötigt)
+        \item mac wendet blockchiffren an CBC-MAC, XOR-MAC (kryptische starke Hashfunktion = HMAC)
+        \item CBC Geht für Mac - aber CTR geht nicht für MAC ( weil der Blockweise auswertet)
+       \end{itemize}
+       \subsection{Secure Messaging}
+        \begin{itemize}
+         \item Ziel Sicherer Kanal zwischn Alice und Bob
+         \item Sowohl Mac als auch Klartext werden verschlüsselt (IPsec)
+         \item MAC wird zuerst über Klartext geschickt und dann folgt der verschlüsselte Klartext (SSH)
+         \item MAC wird zuerst über Klartext geschickt und Klartext mit Mac nochmach verschlüsselt nachgeschickt (SSL)
+         \item Nur IPsec ist sicher
+         \item für Mac und Klartext zum berschlüsseln andere Schlüssel \textbf{(Trenne wo du trennen kannst.)}
+        \end{itemize}
+       \subsection{Instanzauthentisierung}
+       \begin{itemize}
+        \item Verfahren zur Intanzauthentisierung sind: Benutzername/Passwort - biometrische Merkmale/Fingerabdruck - Challenge-Response Verfahren
+       \end{itemize}
+       \subsection{Challange Response Verfahren (symmetrisch)}
+       \begin{itemize}
+       \item Ziel: Nachweises eines Geheimnisses ohne dies offen zu legen
+       \item A und B proudly owning the same key A schickt challange = (Zufallszahl) -B bildet MAC von challange mit key und schickt dies A zu A überprüft ob die MAC wirklich von
+       dem key stammt.
+       \end{itemize}
+       \subsection{ Asymmetrische Verfahren} 
+       \begin{itemize}
+        \item Es gibt zwei öffentliche Schlüssel $pk$ zwei private Schlüssel $ps$.
+        \item Mit sk wird die Prüfsumme berechnet mit - pk kann dann Prüfsumme von jedem überprüft werden (IA= Instanzauthentisierung)
+        \item Grundidee asymmeterischer Verfahren: Eingwegfunktion mit Falltür - f ist effizient berechnbar - Umkehrfunktion nur mit Zusatzswissen berechenbar)
+        \item pupliziert 1977 Rivest, Shimir und Adlemann - erste bekannte asymmetrische Verfahren / erfinder wurden reich - aber es hat etwas gedauert
+        \item siehe mathevorlesung
+        \item $c = m^e \% N$, $m = c^d \% N$ 
+       \end{itemize}
+       \subsection{ Hybridverfahren}
+       \begin{itemize}
+        \item A verschlüsselt mit öffentlichem Schlüssel von B - einen random Key und schickt diesen B zu - nun kann symmetrisch weiterverschlüsselt werden.
+        \item A muss sich sicher sein, dass der Schlüssel zu B gehört.
+       \end{itemize}
+        \subsection{ Signaturverfahren}
+       \begin{itemize}
+        \item A signiert m mit privaten Schlüssel und schickt Signatur sowie Nachricht m zu B - B kann aus der Signatur über den öffentlichen Key m zurückgewinnen und mit dem 
+        zugeschickten m abgleichen.
+        \item Bei Signaturverfahren nach RSA - wird der Hashwert der Naricht verschlüsselt. - über öffentlichen Key kriegt man also Orginal Hash der Nachricht
+        \item erfüllt die Nichtabstreitbarkeit nur der Inhaber des privaten Schlüssel kann Nachricht signiert haben.
+       \end{itemize}
+       \subsection{ challange Response - Asymmetrisch}
+       \begin{itemize}
+        \item Nachweis eines Geheimnisses ohne dies offen legen zu müssen - schicke challange c an B - mit sk verschlüsselt zurückbekommen - mit pk gewinnt man wieder das Geheimnisses
+        - B kennt also sk
+       \end{itemize}
+        \subsection{ RSA - Zusammenfassung}
+        \begin{itemize}
+         \item Verschlüsselung
+         \item Datenauthentiesierung (Signaturverfahren)
+         \item Instanzauthentisierung (Challange-Response-Verfahren)
+         \item Für alle Verfahren - werden unterschiedliche Schlüssel eingesetzt (Trenne wo du trennen kannst) sonst sind Angriffe möglich.
+         \item Später Beispiel angeben... .
+        \end{itemize}
+        \subsection{ Vertrauensmodelle }
+        \begin{itemize}
+         \item Problem 1 + 2: - Nutzung öffentlicher Schlüssel falscher Person - keine Vertraulichkeit mehr gewahrt / falsche Zuordnung des öffentlichen Schlüssel 
+         zu einer Person - Datenauthenzität ist nicht gewährleistet
+         \item Direct Trust: Nutzer erhält den öffentlichen Schlüssel direkt vom Schlüsselinhaber (kleine Virtual Private Networks)
+         \item Web of Trust: Nutzer signieren sich gegenseitig ihre öffentlichen Schlüssel (PGP, GNU-PG) Also Bob signiert Carls öffentlichen Schlüssel - Alice
+         vertraut Bob nur vernünftige Leute zu signieren - Alice prüft mit Bobs öffentlichen Schlüssel den öffentlichen Schlüssel von Carl -jedem Schlüssel zugeordnet sind:
+         Name des Schlüsselinhabers/ Key Legitimacy (3 Stufen, Grad des Vertrauens in den öffentlichen Schlüssel) leitet sich ab aus den Owner Trusts der Signierer und der Anzahl der Signaturen
+         /Signaturen des öffentlichen Schlüssels (Schlüsselbund) - verwentet bei OpenPGP
+         \item Owner Trust besitzt 5 Stufen: unbekannt, kein Vertrauen, geringes Vertrauen, volles Vertrauen, absolutes Vertrauen (eigener Schlüssel)
+        \end{itemize}
+        \subsubsection{ Nachteile Web of Trust }
+        \begin{itemize}
+         \item Owner Trust - erfordert hohes Wissen der Nutzer
+         \item Signaturen sind juristisch nicht bindend
+         \item Zurückziehen Zertifikate nicht einfach umsetzbar
+        \end{itemize}
+        \subsubsection{ Vorteile Web of Trust }
+        \begin{itemize}
+         \item Deutschliche Verbesserung gegenüber Direct Trust
+         \item Umgesetzt in PGP (Pretty good Privacy) und OpenPGP
+         \item Zahlreiche Schlüsselserver für Signaturen und öffentliche Schlüssel
+         \item Einige Server bieten Certification Service für PGP und GPG Schlüssel an
+        \end{itemize}
+        
+         \subsubsection{ Hierachical Trust }
+         \begin{itemize}
+          \item Funktioniert über die Stelle die Zertifikate ausgibt CA = Certification Authority
+          \item Aufgabenteilung in RA = Registration Authority (Sicherheitsrichtlinien, Zertifikatsanträge, Inhalte der Zertifikate, Leitet Anträge an CA weiter) und CA = Certification Authority
+          (stellt eigentlichen Zertifikate aus)
+          
+          \item Certificate enthält öffentlichen Schlüssel des Nutzers - dieser schickt bei Übertragung
+          öffentlichen Schlüssel der CA (der bekannt sein sollte)- sowie message und Signatur
+          \item Certificate können entzogen werden Certificate Revokation Lists (CRL)
+          \item All Instanzen einer PKI (Root-CA, Teil-CAs, Endnutzer) müssen ein definiertes Maß an
+Sicherheitsstandards einhalten.
+          \item Certificate Policy (welche Sicherheitsvorgaben müssen eingehalten werden) 
+          + Certificate Practise Statement( wie werden die Sicherheitsvorgaben umgesetzt) : beschrieben in RFC 3647
+          \item Zertifikate müssen: Inhaber eindeutig identifizieren, Schlüsselnutzung festlegen, Ausstellende CA identifizieren - zwei Standards:
+          X509: Eingesetzt zur sicheren Kommunikation im Internet (https) - Card Verifiable Certificates (cvc): Eingesetzt zur sicheren Kommunikation
+zwischen/zu Smartcards
+           \item OID = Knoten in einem hierachisch zugewiesenem Namensraum - Folge von Nummern die Position beginnend von Wurzel beschreibt(damit wird z.B. der umgesetzte Algorithmus
+           beschrieben)
+           \item  Zertifikate haben momentan  3 Versionen - aber v3 dann extrainfos (Extenstions bsplweise infos : issuer und subject(Telefon email etc.)
+          
+         \end{itemize}
+
+
+                
+
+
+
+
+
+\end{document}

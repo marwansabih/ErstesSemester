@@ -1,0 +1,54 @@
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper,left=40mm,right=30mm, top=1cm, bottom=2cm} 
+%opening
+\title{TGI-1}
+\author{}
+
+\begin{document}
+\section{Einführung in Grundbebriffe}
+
+\textbf{IT-Compliance: }  IT Compliance beschreibt in der Unternehmungsführung die Kenntnis und die Einhaltung der gesetzlichen,
+unternehmsinternen und vertraglichen Regelungen im Bereich der IT-Landschaft.
+\\
+\\
+\textbf{IT-Governence: } Liegt der Verantwortung des Vorstands und des Managements und ist wesentlicher Bestandsteil der 
+Unternehmungsführung. IT-Governence besteht aus Führung, Organisiationsstrukturen und Prozessen, die sicherstellen,
+das die IT die Unternehmenstrategie und Ziele unterstüzt.
+\\
+\textbf{ISMS = Informationssicherheitsmanagementssystem: } Beschreibt das allgemeine Sicherheitsmanagement speziell im Bereich der
+Informationssicherheit. ISMS es ein komplexer Prozeß der Steuerung von materiellen, konzeptionellen und menschlichen Ressourcen mit
+dem Ziel, den Anforderungen an die Aspekte -Auftragserfüllung, Vertraulichkeit, Integrität und Verfügbarket einer Organisation
+angemessen zu entsprechen.
+
+\textbf{Bedrohung:}
+Ereignisse oder Begebenheiten aus dennen ein Schaden entstehen kann.\\
+
+Bedrohungskategorie\\
+höhere Gewalt\\
+elementare Bedrohung\\
+techniches Versagen\\
+vorsätzliches Handln\\
+menschliche Fehlentscheidung
+
+\textbf {Schwachstelle:} Sicherheitsrelvanter Fehler eines IT-Systems oder eines Prozesses.
+
+\textbf{Schutzmaßnahmen: } Maßnahmen um einen Zustand von Sicherheit zu erreichen oder zu verbessern.
+\\
+nach BSI:\\
+Infrastruktur: Verschlossene Türen + Videokameras\\
+Hardware und Software: Firewall, Malewareschutz, IDS (Analyisert und schlägt Alarm wenn Angriff stattfindet) - IPS (leitet sogar noch
+GegenMaßnahmen ein)\\
+Organisation\\
+Kommunikation\\
+Notfallvorsorge\\
+Personal\\
+
+
+
+
+\end{document}

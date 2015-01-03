@@ -1,0 +1,26 @@
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper,left=40mm,right=30mm, top=1cm, bottom=2cm} 
+%opening
+\title{TGI-1}
+\author{}
+
+\begin{document}
+\section{Fall 1}
+
+\subsection{Kurzbeschreibung}
+
+Streamen von Film auf kino.to - 500 Euro Strafe + 500 Euro Rechtsanwaltgebühr 
+
+\begin{itemize}
+ \item Zwei oder mehrere Computer, die durch ein
+Übertragungsmedium miteinander verbunden (vernetzt) sind, bilden ein Computernetzwerk. 
+\item Es gibt Relais Knoten für die Vernetzung da nicht jeder Knoten mit jedem anderen verbunden werden kann (zuviele Verbindungen nötig)
+\end{itemize}
+
+
+\end{document}

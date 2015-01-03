@@ -1,0 +1,60 @@
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper,left=40mm,right=30mm, top=1cm, bottom=2cm} 
+%opening
+\title{TGI-1}
+\author{}
+
+\begin{document}
+\section{Malware}
+
+\subsection{Malware}
+
+\begin{itemize}
+ \item \textbf{Malware:} Für Malicious (bösartig) Hardware, Software oder Kombination von beiden
+\end{itemize}
+
+\subsection{Definition}
+
+
+\begin{itemize}
+ \item \textbf{Prozess:} Programm was ausgeführt wird.
+ \tem \textbf{Betriebssystem:} Erstes Programm was beim Starten ausgeführt wird und dann immer aktiv bleibt.
+\end{itemize}
+
+\subsection{Arten von Malware}
+
+\subsubsection{Klassen von Malware (Joanna Rutkowska}
+\begin{itemize}
+ \item \textbf{Klasse 0: } Die Malware ändert keinen kritischen Teils des System.
+ \item \textbf{Klasse 1: } Malware ändert einen kritischen Bereich, der sich so gut wie nie geändert werden sollte 
+ \item \textbf{Klasse 2: } Die Malware ändert einen kritischen Bereich der städig geändert werden darf (unwichtig!) 
+ \item \textbf{Klass2 3: } Überhaupt nicht im System
+ \item \textbf{Zu Klasse 0: } Böser Prozess der neben anderen Prozessen exitiert (häufigste Form)
+                              \begin{itemize}
+                               \item Trojaner: sind neue Anwendungen die vom Benutzer ausgeführt werden meistens ohne Wissen, dass 
+                               es sich um Malware handelt
+                               \item Viren: modifizieren existierende Anwendungen 
+                               \item Giftige Eingabe: Nutzen Bugs aus (Exploits) ... wobei nicht kritische Teile des System geändert
+                               werden
+                              \end{itemize}
+
+ \item \textbf{Zu Klasse 1: } Entweder Änderung im Kern des Betriebsystem - oder Änderungen in wichtigen SystempBetrozessen.
+                               \begin{itemize}
+                               \item Rootkits: Einbringen von Malware in den Betriebssystemkernel mit dem Ziel die Malware vollständig zu verstecken
+                               \item Insider Angriffe (Jemand von innerhalb des System):  Backdoor(Hintertür ) manipulierte Software die bestimmmten Leuten Zugriff 
+                               aus das Betriebssystem ermöglicht\\
+                               \           Logikbombe wird ausgelöst wen bestimmte Bedingungen erfüllt werden (z.B. bestimmtes Datum) 
+                              \end{itemize}
+
+ \item \textbf{Rootkits} Einbringen von Malware in den 
+ \item \textbf{ Die Wahrund der Privatsphäre der Nutzer:} Betreiber und Architekten stellen sicher das Interessen von Nutzern gewahrt sind - 
+ Datenschutz + benutzerfreundlich 
+\end{itemize}
+
+
+\end{document}

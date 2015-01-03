@@ -1,0 +1,151 @@
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper,left=40mm,right=30mm, top=1cm, bottom=2cm} 
+%opening
+\title{TGI-1}
+\author{}
+
+\begin{document}
+\section{Netzwerk und Internetsicherheit}
+
+\subsection{Computernetzwerk}
+
+\begin{itemize}
+ \item Zwei oder mehrere Computer, die durch ein
+Übertragungsmedium miteinander verbunden (vernetzt) sind, bilden ein Computernetzwerk. 
+\item Es gibt Relais Knoten für die Vernetzung da nicht jeder Knoten mit jedem anderen verbunden werden kann (zuviele Verbindungen nötig)
+\end{itemize}
+
+\subsection{Adressing und Routing}
+
+\begin{itemize}
+ \item Knoten besitzen Adresse
+ \item Mit Pfadangabe können dann Pakete über das Netzwerk verschickt werden
+ \item Jeder Knoten besitzt Routingtabelle = Tabelle wo hingeschicket werden kann
+ \item Forwarding = Prozess der Datenweiterleitung mit Informationen aus dem Routing
+ \item Das eigentliche zusammengefasst: Naming = Name für Knoten oder Dienst/ Adressing = Adresse für Knoten oder Dienst / Routing = Bestimmung des Pfades den Daten durch
+ das Netzwerk nehmen / Forwarding = weiterleiten von Daten von einem Netzwerksegment ins nächste
+\end{itemize}
+
+\subsection{Schichtenmodell}
+
+\begin{itemize}
+ \item Es hat sich herausgestellt, dass zur Beherschung der Komplexität von Netzwerken Schichten gleicher Funktionalität nützlich sind.
+ \item Schicht ist eine Dienstschnittstelle an die höhere Schicht
+ \item Protokoll zum Austausch von Nachrichten
+ \item jedes Gerät hat eine MAC Adresse und eine IP-Adresse
+ \item beim Austausch werden Pakete übertragen
+\end{itemize}
+
+\subsection{IP unter der Lupe}
+
+\begin{itemize}
+ \item IP ist Konvergenzprotokoll = überbrückt unterschiedlichste Netzwerktechhnologien / ermöglicht einheitlichen Zugriff für höhere Schichten
+\end{itemize}
+
+\subsection{Netzwerksicherheit}
+
+\begin{itemize}
+ \item Netzwerksicherheit = Sicherheit aller an das Netzwerk angeschlossenen Geräte abhängig von den Schutzzielen.
+ \item Bit und Linklayer = Schichten 1 & 2: physikalische Verbindung zwischen zwei Netzwerkgeräten - Nur einzelne Segmente können geschützt 
+ werden (z.B.) verschlüsseltes WLAN
+ \item Network Layer Schicht 3: - Vermittlungsschicht unabhängig von dem gewählten Linklayer - IP-Adresse -Internetprotokoll IPv4 - IPv6 /Ipsec (ist ein VPN) - 
+ Alle Geräte inklusive Router sind beteiligt- Probleme mit NATs = Network Adress Translator
+ \item Transport-Layer 4: bekanntes Beispiel TLS Transport Layer security = https - beseitig Ipsec Probleme (passiert NATs)- nur direkt zwischen den komunizierenden
+ Geräten
+ \item Schicht 7: Application Layer - Beispiel: Email - (EzE) Ende zu Ende Sicherheit - bei Email ist EZE über mehrere Hosts verteilt
+\end{itemize}
+
+\subsection{Email unter der Lupe}
+
+\begin{itemize}
+ \item Drei wichtige Bestandteile: Anwendungsprogramm(Outlook etc.) - Mailserver - SMTP (Simple Mail Transfere Protokoll)
+ \item Funktionsweise: Anwendungsprogramm sendet an eigenen Mailserver - dieser speichert in eigene Warteschlange - öffnet TCP Verbindung als Client vom Empfängermailserver -
+ Nachricht wird über - Empfängermailserver empfängt Nachricht und speichert sie- Empfänger liest irgendwann die Mail
+ \item Übertragung wird in der Regel geschützt - Obwohl die Mails selbst in Klartext auf den Mailservern und Clients liegen.
+\end{itemize}3SMTP Client versendet
+
+
+\subsection{Protokoll-Entwurf}
+
+\begin{itemize}
+ \item Wie der Computer Hallo sagt: TCP-Verbindungsanforderung (links) / TCP-Verbindungsbestätigung(rechts)/ GET http://www... (links) / sendet Datei (rechts)
+ \item Für Sicherheit: Bei Verbindung feststellen ob Anfrage nicht mit gefälschter IP versendet wurde. (Beispielsweise könnte  Angreifer mit gefälschter IP 1000 Anfragen 
+ schicken DOS)
+ \item IPsec (Schutzziel Vertraulichkeit): Sender verschlüsselt (IP Payload) - (Schutzziel Authentifizierung:) Zielhost kann Quell-IP authentifizieren
+ \item IPsec besteht aus 3 Protokollbestandteilen: 1. Authentication-Header-Protokoll(AH) 2. Encapsulation-Security-Protokoll ESP 3. Internet Key Exchange IKE
+ 
+\end{itemize}
+
+\subsection{Security Association SA}
+\begin{itemize}
+\item Aufbau einer logischen Verbindung namens 'Security Association' (SA)
+\item Verbindung auf der Netzwerkschicht
+\item wird für AH und ESP benutzt
+\item Eigenschaften: uni-direktional /SA eindeutig bestimmmt durch: Sicherheitsprokoll( AH oder ESP)/ Quell IP/ 32 Bit Verbindungsid
+\item 2 Betriebsmodi: Transportmodus (direkte Verbindung zwischen zwei Hosts) / Tunnel-Modus - Tunnel zwischen zwei Hosts - andere Hosts benutzen ihn
+\item für Kommunikation von A und B wird eine SA von A nach B benötigt und eine SA von B nach A benötigt
+\end{itemize}
+
+\subsection{Was hat AH (Authentication Header) zu bieten?}
+\begin{itemize}
+ \item Quellen-Authentifizierung/ Datenintegrität/ keine Vertraulichkeit - AH-Heaeder liegt zwischen Daten und IP-Header
+ \item gewährt Datenintegrität und Quellen-Identifizierung - aber keine Vertraulichkeit
+\end{itemize}
+\subsection{Was hat ESP (Encapsulating Security Payload) zu bieten?}
+\begin{itemize}
+ \item bietet Vertraulichkeit/ Hostauthentifizierung / Datenintegrität
+ \item Daten und ESP-Trailer sind verschlüsselt
+ \item viel blabla welches unwichtig scheint...
+ 
+\end{itemize}
+ \subsection{SA - Management }
+\begin{itemize}
+ \item ESP oder AH werden für Übertragung verwendet -aber wie baut man die Verbindung auf?
+ \item Möglichkeiten: 1. manuelle Konfiguration (selbstständige Eingabe der Verschlüssungsparameter 2. Automatische Konfiguration - Beispiel (IKE = Internet
+ Key Exchange)
+\end{itemize}
+
+ \subsection{IKE }
+\begin{itemize}
+ \item Gegenseitige Authentifizierung
+ \item Aushandeln der Parameter
+ \item Aufbau und halten der Verbindung
+ \item benutzt Zertifikate oder shared secrets für den Verbinundsaufbau
+ \item Zwei Versionen IKEv1 und IKEV2 (2 scheint super wichtig zu sein)
+\end{itemize}
+
+ \subsection{Was die IP alles erlaubt }
+\begin{itemize}
+ \item Jeder Host kann mit jedem anderen Host komunizieren 
+ \item jede Art von Dienst möglich 
+ \item Vor- und Nachteile - Angriffe( Denial of Service, Einbrechen in Systeme, Missbrauch von Daten) 
+\end{itemize}
+
+ \subsection{Was machen Firewalls? }
+ \begin{itemize}
+  \item Filtern und untersuchen Datagramme (Hauptsächlich Paketheader (Inhalt würde tiefergehen DPI = Deep Packet Inspection))
+  \item Firewalls werden in den Netzwerk-Datenpfad gesetzt
+  \item typischerweise an den definierten Netzübergängen (zwischen unterschiedlichen Sicherheitsbereichen)
+  \item Firewall erlaubt Durchgang oder blockiert (Einzelne Pakete - bzw. Fluss von Pakten (package flow))
+  \item Firewalls blocken sowohl angreifer von außen ab - als auch die Weiterleitung von Viren von Innen.
+  \item Firewalls inspezieren die Pakte anhand von Filterregeln (dann aktion pass - bzw. block)
+  \item Policiy-Rules implizieren eine Verkehrsfulssrichtung (Ausgehender Verkehr - eingehender Verkehr)
+ \end{itemize}
+
+  \subsection{Firewall Typen? }
+ \begin{itemize}
+  \item Nur Ip Layer (seit 2014 nicht mehr im Einsatz)
+  \item checkt Layer 4 Tcp und IP header - checkt unter anderem die Semantic ... sehr verbreitet (2014)
+  \item Deep Packet Inspection - checkt weiter als Layer 4 bis in die Applikationsdaten hinein
+  \item Zustandslose/stateless
+  \item Zustandsbehaftete/stateful: behält einen Zustand für eine Verbindung für bsplweise TCP ICMP ...
+ \end{itemize}
+
+
+
+\end{document}
