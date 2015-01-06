@@ -61,7 +61,77 @@ Personal: Vertretungsregelung, Awarenessmaßnahmen, Einarbeitung von Mitarbeiter
 Maßnahmen und Gestaltung eines
 Sicherheitskonzeptes.
 
+\section{Einordnung der Managmentsysteme}
 
+\subsection{Eine Beschreibung nach COBIT 5}
+
+\textbf{It Governence: } Überwacht die IT bezüglich Strategie und Ziele des Unternehmen
+
+\textbf{ISMS = Informationssicherheitmanagementsystem: } Sorgt dafür das Sicherheit der Schutziele garantiert ist - steuert die IT um Informationssicherheit 
+zu gewährleisten.
+
+\textbf{IT-Risikomanangent: } Der Teil des ISMS der sich mit der IT beschäftigt (Berichtet an Riskomanagement)
+
+\textbf{IT - Compliance: } Wird von IT-Risikomanagement überwacht und dient zur Umsetzung aller wichtigen und relavanten Maßnahmen die durch
+interne so wie externe Anforderungen enstehen (Ist Teil von Compliance)
+
+\section{ISO-Standard}
+
+
+\textbf{27000} Enthält Überblick und verwendete Definitionen\\
+Enthält einen Überblick über die Familie des ISMS-Standards. Sowie
+eine Einfühung was ein ISMS (Information Management System ) überhaupt ist.
+Eine kurze Beschreibunb von Plan-Do-Check-Act (PDCA). Sowie die Therme und Definitionen
+die benötigt werden.
+\\
+\textbf{27001} Vorraussetzungen\\
+Enthält Informationen über den Aufbau, Betrieb, Verbesserungen, Einschätzungen und Behandlung von Risiken eines ISMS.\\
+\textbf{27002} Verfahrensregeln für die Informationssicherheit\\
+Enthält Sicherheitsmaßnahmen die in 13 unterschiedliche Domänen geteilt werden - Hinweise zum Organisationsaufbau
+wie man Richtlinien und Policyerstellung und technische Maßnahmen.\\
+\textbf{27003} Umsetzungs-Leitfaden\\
+Wie man Projekte aufsetzt - zuerst Management-Zustimmung, ISMS Scope und Richtlinien, Analyse der Organisation, Risikomanagementprozess, Design des ISMS
+\textbf{27004} Überprüfen der Wirksamkeit\\
+Wirksamkeit des ISMS und der Sicherheitsmaßnahmen\\
+\textbf{27005} Informationssicherheit Risikomanagement\\
+1. Den Kontext feststellen\\
+2. Risiko Einschätzung\\
+3. Risiko Behandlung\\
+4. Risiko Akzeptanz\\
+5. Risiko Kommunikation\\
+6. Risiko monitoring und Rezension\\
+\section{27001}
+7 Schritte:\\
+1. Kontext der Organisation\\
+2. Leitung\\
+3. Planung\\
+4. Support\\
+5. Betrieb\\
+6. Leistungsauswertung\\
+7. Verbesserung\\
+1.\\
+Für den Kontext der Organisation was sind die Hauptziele der Organisation und wie kann
+die IT dabei helfen? - Was ist absolut nötig damit der Laden läuft?\\
+Welche Anforderungen stellt das Unternehmen deshalb an die IT.\\
+Welche Anforderungsgruppen gibt es und welche Anforderungen haben sie (IT-Compliance).\\
+2.\\
+Management soll Leitung und Bekenntnis zum ISMS zeigen. Viel Bla bla bla
+was Management machen soll - Policy - Integrierung des ISMS in Geschäftsprozesse - Förderung und Verbesserung des ISMS - Unterstützen der anderen re... Management\\
+3.\\
+Unter berücksichtigung der Kontextfeststellung, insbesondere der Anforderungsfeststellung:\\
+-Information Security Risk Assement nach Iso 27005: Risiko-Identifizierung, Risiko-Abschätzung, Risiko-Bewertung\\
+-Information Security Risk Treatment nach Iso 27005
+4.\\
+Ressourcen bereitstellen\\
+Identifizierung der nötigen Kompetenz\\
+Dokumentation zur Feststellung der Kompetenz (Test wäre viel besser)\\
+Angstellte sollten Informationssicherheitspolicy kennen (Awareness) und sich ihres
+Beitrags zur Sicherheit bewusst sein\\
+Komunikation muss klar geregelt werden\\
+Dokumentation\\
+5.\\
+Planen + umsetzen und dokumentieren der Prozesse\\
+Umsetzen der Maßnahmen die identifiziert worden\\
 
 
 \end{document}
