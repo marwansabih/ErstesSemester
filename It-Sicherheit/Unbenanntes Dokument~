@@ -25,7 +25,3 @@ B bildet den MAC Wert mit dem Schlüssel und schickt ihn A zu - A überprüft ob
 Wie kann man Challange Response mittels eines asymmetrischen Verfahren bewerkstelligen?
 
 A schickt eine mit öffentlichen Schlüssel verschlüsselste Zufallszahl an B. Dieser sendet Zufallszahl zurück
-
-Wie funktioniert ein Hybrid Verfahren?
-
-A verschlüsselt mit öffentlichen Schlüssel von B einen Schlüssel und schickt diesen B zu. B entschlüsselt mit dem private key

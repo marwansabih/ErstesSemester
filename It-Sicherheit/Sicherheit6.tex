@@ -1,0 +1,113 @@
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper,left=40mm,right=30mm, top=1cm, bottom=2cm} 
+%opening
+\title{TGI-1}
+\author{}
+
+\begin{document}
+\section{IT-Forensik}
+\subsection{Definitionen}
+
+\begin{itemize}
+ \item Wissenschaftliche Beantwortung/ Klärung von Rechtsfragen im Kontext von IT-Systemen. 
+ \item Es gibt ein Paradigma der Integrität von Beweismittln.
+ \item Chain of Custody: Beweiskette einhalten - klare Dokumentation wer wie wann auf das Beweisstück Zugriff hat.
+\end{itemize}
+
+\subsection{Locards exchange principles}
+\begin{itemize}
+ \item Bei Kontakt zwischen Objekten findet immer ein Austausch statt. (Jeder und alles am Tatort hinterläßt etwas und nimmt etwas mit (physische Spuren).
+\end{itemize}
+
+\subsection{Anforderungen an IT-Forensik}
+
+\begin{itemize}
+ \item Akzeptanz: Nutzung weltweit anerkannten Methoden
+ \item Glaubwürdigkeit: Robustheit und Funktionalität der angwandte Methode 
+ \item Wiederholbarkeit: liefert immer das gleiche Ergebnis
+ \item Integrität: Digitale Spuren bleiben unverändert.
+ \item Ursache und Auswirkung: Verbindung zwischen Ereignissen, Spuren und evtl. auch Personen herstelllen.
+ \item Dokumentation: Insbesondere Chain of Custody
+\end{itemize}
+
+\subsection{Vorgehensmodelle}
+S-A-P Modell
+\begin{itemize}
+ \item Sichern: identifiziern und sichern von Spuren ( Master-, Arbeitskopie)
+ \item Analysieren: vorverarbeiten (z.B. nur JPG-Bilder suchen), Inhalte sichten und korrelieren.
+ \item Präsentation: dokumentieren für bestimmte Zielgruppe aufarbeiten und vorstellen
+\end{itemize}
+BSI-Vorgehensmodell:
+\begin{itemize}
+ \item Strategische Vorbereitung: Vor Eintritt eines Zwischenfall:
+ \begin{enumerate}
+  \item Bereitstellen von Datenquellen (Logging für Serverdienste etc )
+  \item Einrichtung forensicher Workstation samt Zubehör: (Tool, Write Blocker, Kabel für Smartphones ... etc)
+  \item Festlegung von Handlungsanweisungen (z.B. Rücksprache mit Jurist)
+ \end{enumerate}
+ \item Operative Vorbereitung: (Bestandsaufnahme vor Ort nach Eintritt eines Zwischenfalls)
+ \begin{enumerate}
+  \item Festlegung konkretes Ziel der Ermittelung
+  \item Festenlegen der nutzbaren Datenquellen (Datenschutz)
+ \end{enumerate}
+ \item Datensammlung: (Datenakquise oder Datensicherung):
+  \begin{enumerate}
+   \item Sicherung der im Rahmen der operativen Vorbereitung festgelegten Daten
+   \item Integrität der Daten sowie Vier-Augen-Prinzip berücksichtigen.
+   \item Order of Volatilty bei der Datensicherung beachten (z.B Ram zuerst)
+  \end{enumerate}
+ \item Datenuntersuchen (Vorverarbeitung der anschließnenden Analyse)
+ \begin{enumerate}
+  \item Datenreduktion (irrelavantes kann weg)
+  \iten Datenrekonstruktion
+ \end{enumerate}
+ \item Datenanalyse (Analyse der vorverarbeiteten Daten)
+ \begin{enumerate}
+  \item Insbesondere Korrelation der Daten
+ \end{enumerate}
+
+\item Dokumetation:
+\begin{enumerate}
+ \item Verlaufsprotokoll: Einzellschritte auschreiben
+ \item Ergebnisprotokoll: Anpassen des Verlaufsprotokoll an Zielgruppe
+ \item Nutzung standartersierter Termonologie
+\end{enumerate}
+
+\subsection{Datenträgeranalyse}
+
+Erstellen einer Arbeitskopie (Masterkopie,Integrität testen, Anfertigung der Arbeitskopie, Integrität testen)
+\begin{itemize}
+ \item Paradigma: Orginal so selten wie möglich verwenden (Einfach bei allem Festplattenähnlichen Dingen - schwer bei Smartphones etc.)
+ \item Verwendung von Schreibschutz (typischerweise Hardware basierte Write Blocker).
+\end{itemize}
+
+\subsubsection{Sektor und Partitionierung}
+\begin{itemize}
+ \item Sektor: kleinste adressierbare Einheit auf einem Datenträger. Wird adressiert mit LBD (Logical Block Adress) damals (512 Bytes damals) heute (4096 Byte)
+ \item Partitionierung: Ziel: Organisation in kleinere Bereiche zur Ablage unterschiedlicher Daten (Linux, Windows) (Partionstabelle)
+\end{itemize}
+\subsection{Dateisystemanalyse}
+
+
+\subsubsection{Dateisystem}
+\begin{enumerate}
+ \item Schnittstelle zwischen Betriebssystem und Datenträger
+ \item Verwaltung von Dateien: Namen, Zeitstempel, Speicherort
+ \item Phänomen der Fragementierung
+ \item Cluster: kleinste adressierbare Einheit auf Dateisystemebene (4096 Byte)
+ \item Dateisystemanalyse
+ \item Apple benutzt HFS Hierachical File System(sowas wie Fat32 für Windows )
+\end{enumerate}
+
+
+\end{itemize}
+
+
+
+
+ \end{document}

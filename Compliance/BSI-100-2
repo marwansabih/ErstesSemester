@@ -1,0 +1,143 @@
+Initiierung des Sicherheitsprozesses
+
+* Erstellen der Sicherheitskonzeption
+
+-Strukturanalyse 
+-Schutzbedarfsfeststellung 
+-Auswahl & Anpassen von Maßnahmen
+-Basis/Sicherheitscheck 
+-Ergänzenden Sicherheitskonzeption
+
+Umsetzen der Sicherheitskonzeption 
+
+Aufrechterhaltung Sicherheitskonzeption und Verbesserung * (Verbesserung geht weider nach oben)
+
+
+
+
+
+
+Erstellen einer Sicherheitskonzeption im Detail
+
+Struktuanalyse (Assetsammlung)
+
+Feststellung SBF
+
+Modellierung des Verbundes Basis Sicherheitschek
+
+Ergänzende Sicherheitsanalyse 
+
+(in 20 % Risikoanalyse)
+
+Konsolidierung der Maßnahmen 
+
+Basis Sicherheitscheck Teil 2 
+
+Realisierung der Maßnahmen
+
+
+
+
+
+Was ist die Strukturanalyse 
+
+Erfassen der Bestandteile die zur Erfüllung der festgelegten Geschäftsprozesse oder Fachaufgaben benötigt werden
+
+Analyse & Dokumentation des Zusammenspiels der Assets
+-Imformationen
+
+
+Strukturanlayse heißt in Betrachtung folgender Elemente in Reihenfolge:
+1. Information, Geschäftsprozesse Anwedungen 
+
+Gleichartige Objekte werden zusammengefasst (Komplixitätsreduktion),dann Typ und Anzahl vermerken
+
+Erfassung der für die Geschäftsprozesse notwendigen Anwendungen mit Anforderungen zu 
+-Vertraulichkeit
+-Integrität
+-Verfügbarkeit
+
+das gleiche für Dokumente und Datenträge und für die Abhänigkeiten der Anwendungen untereinander
+
+
+2. Netzplan
+
+
+graphische Übersicht über Komponenten eines Netzes und ihre Verbidungen:
+
+-die in das Netz eingebunden IT-Systeme (Clients,Server, Switch, Hubs und Router)
+-die Verbindungen zwischen IT-System
+-Außenverbindung
+-Zuerst Netzplan mit allem und dann wird der Netzplan nocheinmal vereinfacht gleichkonfiguritere Systeme werden zusammengefasst
+
+
+
+3. IT-Systeme 
+
+Erhebung von IT-Systemen und ähnlichen Objekten - in tabelarischer Form
+
+Bezeichnung, Einsatzzweck, Plattform, Standort, Bei Gruppen Anzahl, Status (im Betrieb im Test),
+wer nutzt und wer administriert
+
+Neue Tabelle erstellen die angibt auf welchen IT-Systemen Anwendungen installiert sind über eindeutige Bezeichner
+
+Nochmal ne Tabelle die Angibt welche Netzwerkomponenten von Anwendungen betroffen sind.
+
+
+4. Räume
+
+Tabelle mit zuerst Gebäuden
+und dann Räume weiter aufgelistet mit ensprechenden IT-Systemen
+
+SCHUTZBEDARFSFESTSTELLUNG
+
+- Awareness schaffen
+- schafft eine einheitliche Sicherheitsdefinition und ein abgestimmtes Sicherheitsverständnis
+- erleichtert die IT-Grundschutz-Maßnahmen
+
+Definition
+
+Schutzbedarf orientiert sich am Außmaß des Schadens:
+
+normal = Schadensauswirkung ist begrenzt und überschaubar
+hoch = Schadenauswirkungen können beträchtlich sein
+sehr hoch = Schadensauswirkungen sind existentiell bedrohlich, katastrophales Außmaß.
+
+
+Schadensszenarien:
+
+- Verstoß Vertrag, Vorschrift Gesetz (Compliance)
+- Verstroß gegen Datenschutz (informationelle Selbstbestimmung)
+- Gefährdung der Gesundheit der Mitarbeiter
+- Beeinträchtigung der Aufgabenerfüllung
+- negative Auswirkugen (anderes Wort für es wurde anscheinend was vergessen)
+- finanziellle Auswirkungen
+
+Was wäre wenn Frage für Schutzbedarf bei Anwendungen
+
+Wie vorgehen - labern mit Vorgesetzen und Natürlich mit Usern der Anwendungen -falls kein Konsens entscheidet Management
+
+SBF: muss ausführlich begründet werden
+
+Maximumsprinzip für IT-System bezogenauf die Anwendungen - die mit dem höchsten SBF legt SBF des IT-System
+
+Kummulationseffekt: Mehrere Anwendungen mit mittlerem SBF besitzen hohen SBF- falls auf einem IT-System.
+Verteilungseffekt: hoher Schutzbedarf kann gesenkt werden bei Verteilung der Informtion auf mehrere Systeme verteilt wird - nur unwesentliche Information auf entsprechenden Information (pseudonymisierte Daten)
+
+Schutzbedarf für Kommunikationsverbindungen
+
+1.Erfassen sämtlicher Außenverbindungen
+
+2. Welche Leitungen haben (sehr) hohen Schutzbedarf?
+
+3. Über welche Leitungen darf keine Information mit hohen Schutzbedarf fließen?	
+
+Schlussfolgerung aus SBF
+- geben Hinweise für Vorgehensweise: Segementierung/Isolierung kritischer Systee kann Kosten erheblich senken
+
+Erstellen einer Sicherheitskonzeption im Detail
+
+Können Objekte mit erhöhten Sicherheitsanforderungen zusammengefasst werden?
+
+Objekte für erhöhte Sicherheitsanforderungen für ergänzende Sicherheitsanalyse vormerken. 
+-
